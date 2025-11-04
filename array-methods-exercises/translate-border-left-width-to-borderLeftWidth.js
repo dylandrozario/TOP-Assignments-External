@@ -11,8 +11,19 @@ function camelize(str){
     const firstString = strArr[0];
     newStr = firstString;
     const filteredArr = strArr.filter((string) => string !== firstString);
-    const camelizedArr = filteredArr.map((string) => string.charAt[0].toUpperCase() + string.slice(1))
+    const camelizedArr = filteredArr.map((string) => string.charAt(0).toUpperCase() + string.slice(1))
 
-    newStr + camelizedArr.join(" ");
+    newStr += camelizedArr.join("");
     return newStr;
+}
+
+function optimizedCamelize(str){
+    return str
+        .split("-")
+        .map((word, index) =>
+            index === 0
+                ? word
+                : word.charAt(0).toUpperCase() + word.slice(1)
+        )
+        .join("");
 }
